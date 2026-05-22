@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "OrionofJudgment",
+  "version": "1.0",
+  "description": "Displays your cat after spending time on certain websites.",
+  "permissions": ["storage", "alarms", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "OrionofJudgment"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["cat.png", "cat.jpg", "cat.jpeg"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

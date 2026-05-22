@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OrionofJudgment — Options</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 480px;
+      margin: 48px auto;
+      padding: 0 24px;
+      color: #1a1a1a;
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0 0 32px;
+    }
+
+    .field { margin-bottom: 24px; }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin: 0 0 8px;
+    }
+
+    textarea, input[type="number"] {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #1a1a1a;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    textarea:focus, input[type="number"]:focus {
+      border-color: #2563eb;
+    }
+
+    button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    button:hover { background: #1d4ed8; }
+
+    #status {
+      display: inline-block;
+      margin-left: 12px;
+      font-size: 0.88rem;
+      vertical-align: middle;
+    }
+
+    #status.ok  { color: #16a34a; }
+    #status.err { color: #dc2626; }
+  </style>
+</head>
+<body>
+  <h1>OrionofJudgment</h1>
+
+  <div class="field">
+    <label for="sites">Monitored websites</label>
+    <p class="hint">Separate domains with a semicolon. Example: <code>reddit.com;x.com;youtube.com</code></p>
+    <textarea id="sites" spellcheck="false"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="timing">Timer (minutes)</label>
+    <p class="hint">How long the tab must be active before the cat appears.</p>
+    <input id="timing" type="number" min="1" max="999">
+  </div>
+
+  <button id="save">Save</button>
+  <span id="status"></span>
+
+  <script src="options.js"></script>
+</body>
+</html>
